@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+    padding :0px;
+
+}
+header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+nav {
+    width: 50%;
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.container {
+    width: 95%;
+    margin: auto;
+    margin-top: 3%;
+
+}
+.container h1 {
+    text-align: center;
+}
+.materii {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.first, .second, .third {
+    width: 25%;
+    height: 50vh;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+}
