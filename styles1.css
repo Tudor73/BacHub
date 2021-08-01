@@ -2,28 +2,22 @@ body {
     margin: 0px;
     padding :0px;
     font-family: 'Montserrat', sans-serif;
+    color: var(--color1)
 }
 
  /* color palette  */
 :root {
-    --first:  #E4F9F5;
-    --second:#27cab4;
-    --third: #11999E;
-    --fourth: #40514E;
-    --c1: #7DEDFF;
-    --c2: #96BAFF;
-    --c3: #7DEDFF;
-    --c4: #88FFF7;
+    --color1: #02203c;
+    --color2: #535dc5;
 }
-
-
 header {
     width: 100%;
-    height: 10vh;
-    
+    background-color: var(--color1);
+    color: #fff;
 }
 .header-container{
     width: 90%;
+    height: 15vh;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -41,12 +35,22 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     padding-top: 25px;
     letter-spacing: 1px;
 }
 li {
     cursor: pointer;
+}
+.login-button {
+    background-color: var(--color2);
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+}
+.login-button:hover{
+    background-color:#535cc5de ;
 }
 .container {
     width: 70%;
@@ -59,18 +63,30 @@ li {
     letter-spacing: 1px;
 }
 .materii {
-    height: 50vh;
+    height: 55vh;
     margin-top: 13%;
     display: grid;
-    grid-template-columns: 20% 20% 20%;
-    grid-template-rows: 40% 40%;
-    column-gap: 20%;
-    row-gap: 20%;
+    grid-template-columns: 31% 31% 31%;
+    grid-template-rows: 45% 45%;
+    row-gap: 10%;
+    column-gap: 3%;
+    margin-bottom: 200px;
 }
 .materii div{
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: box-shadow 0.3s;
 }
 .materii div:hover{
-    background-color: #999;
+    box-shadow: 0 0 35px -2px rgba(0,0,0,.2);
+}
+.materii div:hover img{
+    transform: scale(1.2);
+}
+.materii div img {
+    height: 50px;
+    transition: transform 0.3s;
 }
 
