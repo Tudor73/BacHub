@@ -34,7 +34,7 @@ header h1 {
     letter-spacing: 1px;
 }
 nav {
-    width: 40%;
+    width: 50%;
 }
 .nav-links {
     display: flex;
@@ -42,6 +42,7 @@ nav {
     justify-content: space-around;
     list-style: none;
     font-size: 1.2rem;
+    padding-top: 25px;
     letter-spacing: 1px;
 }
 li {
@@ -50,7 +51,7 @@ li {
 .container {
     width: 70%;
     margin: auto;
-    margin-top: 9%;  
+    margin-top: 8%;  
 
 }
 .container h2 {
@@ -59,7 +60,7 @@ li {
 }
 .materii {
     height: 50vh;
-    margin-top: 9%;
+    margin-top: 13%;
     display: grid;
     grid-template-columns: 20% 20% 20%;
     grid-template-rows: 40% 40%;
