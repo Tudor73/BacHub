@@ -1,0 +1,43 @@
+
+header {
+    width: 100%;
+    background-color: var(--color1);
+    color: #fff;
+}
+.header-container{
+    width: 90%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 {
+    letter-spacing: 1px;
+}
+nav {
+    width: 50%;
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 1.15rem;
+    padding-top: 25px;
+    letter-spacing: 1px;
+}
+li {
+    cursor: pointer;
+}
+.login-button {
+    background-color: var(--color2);
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+}
+.login-button:hover{
+    background-color:#535cc5de ;
+}
