@@ -24,9 +24,7 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
-    font-size: 1.15rem;
     padding-top: 25px;
-    letter-spacing: 1px;
 }
 li {
     cursor: pointer;
