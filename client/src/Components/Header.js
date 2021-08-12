@@ -23,7 +23,7 @@ function Header() {
                         <Link style={style} to="/dashboard">
                             <li>Dashboard</li>
                         </Link>
-                        <Link style={style} to="/chat">
+                        <Link style={style} to="/posts">
                             <li>Chat</li>
                         </Link>
                         <li className="login-button"> Login</li>
