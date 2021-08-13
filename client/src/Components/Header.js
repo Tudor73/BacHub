@@ -1,6 +1,5 @@
 import React from "react";
-import "./Header.css";
-import "./global.css";
+import styles from "./Header.module.css";
 import { Link, withRouter } from "react-router-dom";
 
 function Header() {
@@ -13,10 +12,10 @@ function Header() {
     }
     return (
         <header>
-            <div className="header-container">
+            <div className={styles.headerContainer}>
                 <h1>Proiect Bac</h1>
                 <nav>
-                    <ul className="nav-links">
+                    <ul className={styles.navLinks}>
                         <Link style={style} to="/">
                             <li>Home</li>
                         </Link>
@@ -26,7 +25,7 @@ function Header() {
                         <Link style={style} to="/posts">
                             <li>Chat</li>
                         </Link>
-                        <li className="login-button"> Login</li>
+                        <li className={styles.loginButton}> Login</li>
                     </ul>
                 </nav>
             </div>

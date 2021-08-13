@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import Header from "./Components/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Variante from "./Components/Variante";
-import Post from "./Components/Post";
-
+import Home from "./pages/Home";
+import Variante from "./pages/Variante";
+import './global.module.css'
+import PostsPage from "./pages/PostsPage";
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
                     <Route path="/" exact component={Home} />
                     <Route path="/dashboard" exact component={Dashboard} />
                     <Route path="/dashboard/:id" component={Variante} />
-                    <Route path="/posts" component={Post} />
+                    <Route path="/posts" component={PostsPage} />
                 </Switch>
             </div>
         </Router>

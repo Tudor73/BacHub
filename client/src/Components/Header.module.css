@@ -1,10 +1,9 @@
-
 header {
     width: 100%;
     background-color: var(--color1);
     color: #fff;
 }
-.header-container{
+.headerContainer{
     width: 90%;
     height: 15vh;
     margin: auto;
@@ -19,7 +18,7 @@ header h1 {
 nav {
     width: 50%;
 }
-.nav-links {
+.navLinks {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -29,13 +28,13 @@ nav {
 li {
     cursor: pointer;
 }
-.login-button {
+.loginButton {
     background-color: var(--color2);
     padding: 12px 20px;
     border-radius: 5px;
     position: relative;
     bottom: 10px;
 }
-.login-button:hover{
+.loginButton:hover{
     background-color:#535cc5de ;
 }

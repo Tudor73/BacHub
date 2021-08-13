@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import './Dashboard.css';
-import "./global.css";
+import styles from './Dashboard.module.css';
 import keys from "../icons/keys.svg";
 import book from "../icons/book.svg";
 import dna from "../icons/dna.svg";
@@ -14,30 +13,30 @@ function Dashboard(props) {
         props.history.push('/dashboard/' + materie);
     }
     return (
-        <div className="container">
+        <div className={styles.container}>
             <h2>ALEGE MATERIA</h2>
-            <div className="materii">
-                <div className="first" onClick={() => handleClick('mate')}>
+            <div className={styles.materii}>
+                <div className={styles.first} onClick={() => handleClick('mate')}>
                     <img src={keys} />
                     <h2>Matematica</h2>
                 </div>
-                <div className="second" onClick={() => handleClick('romana')}>
+                <div className={styles.second} onClick={() => handleClick('romana')}>
                     <img src={book} />
                     <h2>Romana</h2>
                 </div>
-                <div className="third" onClick={() => handleClick('info')}>
+                <div className={styles.third} onClick={() => handleClick('info')}>
                     <img src={laptop} />
                     <h2>Informatica</h2>
                 </div>
-                <div className="fourth" onClick={() => handleClick('biologie')}>
+                <div className={styles.fourth} onClick={() => handleClick('biologie')}>
                     <img src={dna} />
                     <h2>Biologie</h2>
                 </div>
-                <div className="fifth" onClick={() => handleClick('chimie')}>
+                <div className={styles.fifth} onClick={() => handleClick('chimie')}>
                     <img src={test} />
                     <h2>Chimie</h2>
                 </div>
-                <div className="sixth" onClick={() => handleClick('fizica')}>
+                <div className={styles.sixth} onClick={() => handleClick('fizica')}>
                     <img src={atom} />
                     <h2>Fizica</h2>
                 </div>
