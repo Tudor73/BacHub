@@ -34,8 +34,8 @@ export const getOnePost = async (req, res) => {
 export const createPost = async (req, res) => {
 
     try {
-        const results = await db.query('INSERT INTO posts (title, text, author) values ($1, $2, $3)',
-            [req.body.title, req.body.text, req.body.author]);
+        const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
+            [req.body.title, req.body.text, req.body.author, req.body.materie]);
         res.status(201).send("created");
     } catch (err) {
         console.log(err);
@@ -45,8 +45,8 @@ export const createPost = async (req, res) => {
 export const updatePost = async (req, res) => {
 
     try {
-        const results = await db.query("UPDATE posts SET title = $1, text= $2, author = $3 WHERE id = $4 ",
-            [req.body.title, req.body.text, req.body.author, req.params.id]);
+        const results = await db.query("UPDATE posts SET title = $1, text= $2, author = $3, materie = $4 WHERE id = $5 ",
+            [req.body.title, req.body.text, req.body.author,req.body.materie, req.params.id]);
         res.status(201).send("updated");
     } catch (err) {
         console.log(err);

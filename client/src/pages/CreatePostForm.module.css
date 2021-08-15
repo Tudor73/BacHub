@@ -1,0 +1,37 @@
+.container {
+    width: 70%;
+    margin:auto;
+}
+.formContainer{
+    width: 70%;
+}
+textarea {
+    font-size: 16px;
+    resize: vertical;
+    height: 160px;
+    width:100%;
+    tab-size: 4;
+}
+.title {
+    width: 96.5%;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 15px;
+}
+.submitButton{
+    display: inline-block;
+    font-family: inherit;
+    padding: 12px 20px;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    background-color: #535dc5;
+    color:white;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.15384615;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 3%;
+}

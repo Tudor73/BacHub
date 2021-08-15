@@ -1,0 +1,25 @@
+.container { 
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.search {
+    font-size: 14px;
+    line-height: 14px;
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    margin-top: 3%;
+}
+
+.createPost{
+    width: 15%;
+    color: white;
+    letter-spacing: 1px;
+    background-color: #1a62b4fd;
+    padding: 6px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 3%;
+}

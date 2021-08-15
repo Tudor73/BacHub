@@ -22,7 +22,7 @@ CREATE TABLE comments (
 );
 
 
-INSERT INTO posts (title, text, author, materie) values ('titlku', 'text', 1, 'romana');
+INSERT INTO posts (title, text, author, materie) values ('another post', 'this is another post', 1, 'romana');
 INSERT INTO comments(post_id, user_id, comment_text) values (1,1,'this is a comment');
 
 select * from posts;

@@ -1,24 +1,26 @@
 import React from "react";
 import styles from "./Post.module.css";
 
-export default function Post() {
+const parseTime = (time) => {
+    return time.slice(0, 10);
+} 
+
+export default function Post(props) {
+    const date = parseTime(props.time);
     return (
-        <div className={styles.wrapper}>
             <div className={styles.postContainer}>
                 <div className={styles.postHeader}>
-                    <h3>categorie</h3>
-                    <span>posted by user. 2 months ago</span>
+                    <h3>{props.materie}</h3>
+                    <span>posted by user {props.author}. on {date}</span>
                 </div>
                 <div className={styles.postBody}>
-                    <h1>This is my first post</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, voluptatibus. Odio possimus ut alias necessitatibus ad,
-                        quo magni doloribus blanditiis facere impedit? Accusamus eveniet ad, odio consectetur consequuntur aut dolore modi aliquam voluptas </p>
+                    <h1>{props.title}</h1>
+                    <p> {props.text} </p>
                 </div>
                 <div className={styles.postFooter}>
                     <span>Comments(10)</span>
                     <a>Read Post</a>
                 </div>
             </div>
-        </div>
     )
 }

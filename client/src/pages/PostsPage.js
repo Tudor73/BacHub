@@ -1,10 +1,10 @@
 import React from "react";
 import Post from "../Components/Post";
-import "./PostPage.module.css";
+import styles from "./PostPage.module.css";
 import { useState, useEffect } from "react";
 
 
-export default function PostPage() {
+export default function PostPage(props) {
 
     const [posts, setPosts] = useState([{}]); // array of objects
     const [loading, setLoading] = useState(true);
@@ -20,11 +20,19 @@ export default function PostPage() {
             })
 
     }, []);
-
-    return (
-        <div className="container">
-            <input type="text" placeholder="Search for question" />
-            {loading ? <div>...loading </div> : <Post />}
-        </div>
-    )
+    
+        return(
+            <div className={styles.container}>
+                <a className = {styles.createPost} onClick ={ () => {props.history.push('create-post')}}>Create Post</a>
+                <input class={styles.search} type="text" placeholder="Search for question" />
+                {loading ? <div>...loading </div> : posts.map((post, idx) => {
+                    return <Post key={idx} 
+                                title = {post.title} 
+                                text = {post.text} 
+                                author= {post.author} 
+                                materie = {post.materie} 
+                                time = {post.post_date}/>
+                })}
+            </div>
+        )
 }
