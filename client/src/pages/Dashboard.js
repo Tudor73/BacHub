@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from './Dashboard.module.css';
+import styles from './css/Dashboard.module.css';
 import keys from "../icons/keys.svg";
 import book from "../icons/book.svg";
 import dna from "../icons/dna.svg";

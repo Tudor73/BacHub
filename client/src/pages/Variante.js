@@ -1,5 +1,4 @@
 import React from "react";
-import './Variante.module.css';
 
 export default function Variante() {
     return (
