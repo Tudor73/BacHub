@@ -41,6 +41,6 @@ export default function PostDetails({ match }) {
                 </label>
                 <button className={styles.submitButton} type="submit">Raspunde</button>
             </div>
-        </div >
+        </div>
     )
 }
