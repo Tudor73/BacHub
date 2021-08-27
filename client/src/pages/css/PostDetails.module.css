@@ -1,0 +1,41 @@
+.postContainer {
+    width:60%;
+    margin:auto;
+    height:30vh;
+    display: flex;
+    flex-direction: column;
+    padding-left: 8%;
+    margin-top: 3%;  
+}
+.postHeader, .answers{
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+.postHeader, .postBody {
+    width: 85%;
+    padding-bottom:5px;
+}
+.postHeader p{
+    opacity: 0.4;
+    font-size:0.9rem;
+    letter-spacing: 1px;
+}
+.postBody p{
+    line-height: 1.5;
+}
+.submitButton{
+    display: inline-block;
+    font-family: inherit;
+    padding: 12px 20px;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    background-color: #535dc5;
+    color:white;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.15384615;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2%;
+}

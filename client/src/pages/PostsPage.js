@@ -20,11 +20,10 @@ export default function PostPage(props) {
             })
 
     }, []);
-
     return (
         <div className={styles.container}>
             <a className={styles.createPost} onClick={() => { props.history.push('create-post') }}>Create Post</a>
-            <input class={styles.search} type="text" placeholder="Search for question" />
+            <input className={styles.search} type="text" placeholder="Search for question" />
             {loading ? <div>...loading </div> : posts.map((post, idx) => {
                 return <Post key={idx}
                     title={post.title}

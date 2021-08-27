@@ -16,7 +16,7 @@ export default function Post(props) {
 
     const date = parseTime(props.time);
     return (
-        <div className={styles.postContainer} onClick={() => { clickOnPost(props.id) }}>
+        <div className={styles.postContainer} >
             <div className={styles.postHeader}>
                 <h3>{props.materie}</h3>
                 <span>posted by user {props.author}. on {date}</span>
@@ -27,7 +27,7 @@ export default function Post(props) {
             </div>
             <div className={styles.postFooter}>
                 <span>Comments(10)</span>
-                <a>Read Post</a>
+                <a onClick={() => { clickOnPost(props.id) }}>Read Post</a>
             </div>
         </div>
     )
