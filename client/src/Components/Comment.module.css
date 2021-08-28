@@ -1,0 +1,13 @@
+.commentContainer {
+    border: 1px solid #999;
+    padding: 20px;
+    margin-bottom: 3%;
+}
+.commentInfo {
+    opacity: 0.4;
+}
+.commentContainer img { 
+    width: 320px;
+    height: 240px;
+    border: 1px solid #999;
+}
