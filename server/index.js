@@ -5,20 +5,42 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import postRoutes from "./routes/posts.js";
 import commentRoutes from './routes/comments.js';
+import authRoutes from "./routes/auth.js"
 import dotenv from "dotenv";
+import passport from 'passport';
+import session from 'express-session';
+import passportConfig from './config/passport.js';
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './config/config.env' });
+
 const app = express();
 
 const PORT = process.env.PORT || 3000
 
 app.use(cors());
 app.use(express.json())
+
+app.use(
+    session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+    })
+)
+
+// passport config 
+passportConfig(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Routes
 app.use('/posts', postRoutes);
-app.use('/comments', commentRoutes)
+app.use('/comments', commentRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/pdf', (req, res) => {
 

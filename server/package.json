@@ -14,8 +14,11 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "nodemon": "^2.0.12",
     "package.json": "^2.0.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "pg": "^8.7.1"
   }
 }

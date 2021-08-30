@@ -8,6 +8,8 @@ curs.pdf
 # testing
 /coverage
 
+config.env
+
 # production
 /build
 

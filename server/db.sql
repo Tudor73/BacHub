@@ -1,6 +1,7 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(25),
+    google_id VARCHAR(35),
     registration_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 

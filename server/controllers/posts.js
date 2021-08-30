@@ -1,4 +1,4 @@
-import { pool as db } from "../models/postMessage.js";
+import { pool as db } from "../config/db.js";
 
 export const getPosts = async (req, res) => {
 
