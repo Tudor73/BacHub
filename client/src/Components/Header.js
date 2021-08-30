@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import LoginForm from "./LoginForm";
 
 function Header() {
 
+    const [isOpen, setIsOpen] = useState(false);
     const style = {
         color: 'white',
         textDecoration: 'none',
@@ -25,7 +27,8 @@ function Header() {
                         <Link style={style} to="/posts">
                             <li>Chat</li>
                         </Link>
-                        <li className={styles.loginButton}> Login</li>
+                        <li className={styles.loginButton} onClick={() => { setIsOpen(true) }}> Login</li>
+                        <LoginForm isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
                     </ul>
                 </nav>
             </div>

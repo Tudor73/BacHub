@@ -10,3 +10,6 @@ body {
     --color1: #02203c;
     --color2: #535dc5;
 }
+button {
+    cursor: pointer;
+}

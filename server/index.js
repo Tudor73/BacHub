@@ -5,10 +5,15 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import postRoutes from "./routes/posts.js";
 import commentRoutes from './routes/comments.js';
+import dotenv from "dotenv";
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+dotenv.config({ path: './config.env' });
 const app = express();
+
+const PORT = process.env.PORT || 3000
 
 app.use(cors());
 app.use(express.json())
@@ -32,7 +37,7 @@ app.get('/pdf', (req, res) => {
 
 
 
-app.listen(3000, () => { console.log("Server is running ") });
+app.listen(PORT, () => { console.log("Server is running ") });
 
 
 
