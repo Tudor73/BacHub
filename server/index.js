@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from "cors";
 import cookieParser from 'cookie-parser';
-import fs, { chownSync } from 'fs';
+import fs from 'fs';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import postRoutes from "./routes/posts.js";
@@ -47,24 +47,17 @@ app.use(
     })
 )
 
-// passport config 
+// passport config  
 passportConfig(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-    let cookie = req.cookies;
-    console.log(cookie);
-    console.log(5);
-    next();
-});
+
 //Routes
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 app.use('/auth', authRoutes);
-
-
 
 app.get('/pdf', (req, res) => {
 
