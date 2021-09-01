@@ -34,10 +34,16 @@ export const getOnePost = async (req, res) => {
 export const createPost = async (req, res) => {
 
     try {
-        console.log(req.headers);
-        const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
+        if(req.session){
+            const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
             [req.body.title, req.body.text, req.body.author, req.body.materie]);
-        res.status(201).send("created");
+            res.status(201).send("created");
+        }
+        else {
+            console.log("not auth")
+            res.status(401).send('you are not authenticated')
+        }
+
     } catch (err) {
         console.log(err);
     }
