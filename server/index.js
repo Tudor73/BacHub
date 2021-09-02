@@ -28,14 +28,11 @@ const redisClient = redis.createClient({
     host: 'localhost'
 });
 
-
-app.use(cors());
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors());
 
 //Routes
-app.use('/posts', postRoutes);
-app.use('/comments', commentRoutes);
 
 // configure session 
 app.use(
@@ -47,7 +44,7 @@ app.use(
         cookie: {
             secure: false, // if true: only transmit cookies with https
             httpOnly: true, // prevents client side JS from reading cookie
-            maxAge: 1000 * 60 * 60 // session max age in ms
+            maxAge: 1000 * 60 * 100 // session max age in ms
         }
     })
 )
@@ -57,8 +54,14 @@ passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/auth', authRoutes);
+app.use((req, res, next) => {
+    console.log(req.passport);
+    next();
+})
 
+app.use('/auth', authRoutes);
+app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
 
 app.get('/pdf', (req, res) => {
 

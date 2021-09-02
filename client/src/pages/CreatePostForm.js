@@ -10,8 +10,10 @@ export default function CreatePostForm(props) {
         e.preventDefault();
         const post = { title, text, materie };
         post['author'] = 1;
+        console.log(post);
         fetch('http://localhost:3000/posts', {
-            credentials: 'same-origin',
+            // mode: 'no-cors',
+            // credentials: 'include',
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(post)

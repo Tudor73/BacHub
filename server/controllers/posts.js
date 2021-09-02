@@ -34,9 +34,10 @@ export const getOnePost = async (req, res) => {
 export const createPost = async (req, res) => {
 
     try {
-        if(req.session){
+        // res.set('Acces-Control-Allow-Credentials', 'true');
+        if (req.session) {
             const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
-            [req.body.title, req.body.text, req.body.author, req.body.materie]);
+                [req.body.title, req.body.text, req.body.author, req.body.materie]);
             res.status(201).send("created");
         }
         else {
