@@ -2,20 +2,24 @@ import React from "react";
 import styles from "./LoginForm.module.css";
 import ReactDom from "react-dom"
 import { GoogleLogin } from "react-google-login";
+import axios from "axios";
 
 export default function LoginForm(props) {
-    const handleSubmit = () => {
-        fetch('http://localhost:3000/auth/google')
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }
+
     const responseErrorGoogle = (res) => {
         console.log(res);
+
     }
 
     const responseSuccesGoogle = (res) => {
         console.log(res);
-
+        axios({
+            method: 'POST',
+            url: "http://localhost:3000/auth/login",
+            data: {tokenId: res.tokenId}
+        }).then(res => {
+            console.log(res);
+        })
     }
 
     if (!props.isOpen) return null;

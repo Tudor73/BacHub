@@ -1,20 +1,6 @@
 import express from "express";
-
+import { googleLogin } from "../controllers/auth.js";
 const router = express.Router();
 
-router.get('/logout', (req, res) => {
-    if (req.session) {
-        req.logOut();
-        res.status(200).clearCookie('connect.sid', {
-            path: '/'
-        });
-        req.session.destroy(function (err) {
-            res.redirect('http://localhost:3001/posts');
-        });
-    }
-    else {
-        res.redirect('http://localhost:3001/posts');
-    }
-});
-
+router.post('/login', googleLogin)
 export default router;
