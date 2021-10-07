@@ -45,7 +45,7 @@ export default function PostDetails({ match }) {
         }
         fetch('http://localhost:3000/comments', {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", Authorization: localStorage.getItem('jwtToken') },
             body: JSON.stringify(comment)
         }).then(() => {
             let new_comments_number = commentsAdded + 1;
