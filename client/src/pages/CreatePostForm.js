@@ -12,10 +12,8 @@ export default function CreatePostForm(props) {
         post['author'] = 1;
         console.log(post);
         fetch('http://localhost:3000/posts', {
-            // mode: 'no-cors',
-            // credentials: 'include',
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", Authorization: localStorage.getItem('jwtToken')  },
             body: JSON.stringify(post)
         }).then(() => {
             props.history.push('/posts');
