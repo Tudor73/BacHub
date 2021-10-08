@@ -18,6 +18,13 @@ function Header() {
         localStorage.removeItem('jwtToken');
         setUser(null);
     }
+    const onPopUpClose = () => {
+        setIsOpen(false);
+        const token = localStorage.getItem('jwtToken');
+        if(token) {
+            setUser(token);
+        }
+    }
     return (
         <header>
             <div className={styles.headerContainer}>
@@ -36,7 +43,7 @@ function Header() {
                         {user != null ? (<li className= {styles.loginButton} onClick={logoutUser}>Logout</li>) : (
                             <div>
                             <li className={styles.loginButton} onClick={() => { setIsOpen(true) }}> Login</li>
-                            <LoginForm isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+                            <LoginForm isOpen={isOpen} onClose={onPopUpClose} />
                             </div> 
                         )}
 
