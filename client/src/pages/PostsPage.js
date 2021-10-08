@@ -2,6 +2,7 @@ import React from "react";
 import Post from "../Components/Post";
 import styles from "./css/PostPage.module.css";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export default function PostPage(props) {
@@ -10,14 +11,15 @@ export default function PostPage(props) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/posts')
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                setPosts(data.data.posts);
-                setLoading(false);
-            })
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3000/posts',
+            headers: {Authorization: localStorage.getItem('jwtToken')}
+        }).then(res => {
+            setPosts(res.data.data.posts)
+            setLoading(false);
+        })
+        .catch(err => console.log(err))
 
     }, []);
     return (

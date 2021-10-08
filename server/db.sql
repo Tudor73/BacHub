@@ -1,7 +1,7 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(25),
-    google_id VARCHAR(35),
+    email VARCHAR(45),
     registration_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
@@ -23,6 +23,7 @@ CREATE TABLE comments (
 );
 
 
+INSERT INTO users(user_name, email, google_id) values ('dasd', '', '1');
 INSERT INTO posts (title, text, author, materie) values ('another post', 'this is another post', 1, 'romana');
 INSERT INTO comments(post_id, user_id, comment_text) values (1,1,'this is a comment');
 

@@ -1,7 +1,6 @@
 import { pool as db } from "../config/db.js";
 
 export const getPosts = async (req, res) => {
-
     try {
         const results = await db.query('select * from posts');
         res.status(200).json({
@@ -32,19 +31,13 @@ export const getOnePost = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-
+    
     try {
         // res.set('Acces-Control-Allow-Credentials', 'true');
-        if (req.session) {
-            const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
-                [req.body.title, req.body.text, req.body.author, req.body.materie]);
-            res.status(201).send("created");
-        }
-        else {
-            console.log("not auth")
-            res.status(401).send('you are not authenticated')
-        }
-
+        const results = await db.query('INSERT INTO posts (title, text, author, materie) values ($1, $2, $3, $4)',
+            [req.body.title, req.body.text, req.body.author, req.body.materie]);
+        res.status(201).send("created");
+        
     } catch (err) {
         console.log(err);
     }

@@ -21,13 +21,6 @@ dotenv.config({ path: './config/config.env' });
 const app = express();
 const PORT = process.env.PORT || 3000
 
-// configure redis for storing session 
-const RedisStore = connectRedis(session);
-const redisClient = redis.createClient({
-    port: 6379,
-    host: 'localhost'
-});
-
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors());
@@ -35,29 +28,19 @@ app.use(cors());
 //Routes
 
 // configure session 
-app.use(
-    session({
-        secret: 'keyboard cat',
-        resave: false,
-        saveUninitialized: false,
-        store: new RedisStore({ client: redisClient }),
-        cookie: {
-            secure: false, // if true: only transmit cookies with https
-            httpOnly: true, // prevents client side JS from reading cookie
-            maxAge: 1000 * 60 * 100 // session max age in ms
-        }
-    })
-)
-// passport config  
-passportConfig(passport);
+// app.use(
+//     session({
+//         secret: 'keyboard cat',
+//         resave: false,
+//         saveUninitialized: false,
+//         cookie: {
+//             secure: false, // if true: only transmit cookies with https
+//             httpOnly: true, // prevents client side JS from reading cookie
+//             maxAge: 1000 * 60 * 100 // session max age in ms
+//         }
+//     })
+// )
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use((req, res, next) => {
-    console.log(req.passport);
-    next();
-})
 
 app.use('/auth', authRoutes);
 app.use('/posts', postRoutes);
