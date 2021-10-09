@@ -39,10 +39,17 @@ export default function PostDetails({ match }) {
         e.preventDefault();
         setFormText('');
         const comment = {
-            'user_id': 1,
             'post_id': match.params.id,
             'comment_text': formText
         }
+        if(localStorage.getItem('jwtToken')){
+            const user_name = localStorage.getItem('name');
+            comment['author'] = user_name;
+        }
+        else{
+            return ( <div>You are not logged in </div>)
+        }
+
         fetch('http://localhost:3000/comments', {
             method: "POST",
             headers: { "Content-Type": "application/json", Authorization: localStorage.getItem('jwtToken') },
@@ -73,7 +80,7 @@ export default function PostDetails({ match }) {
                 {loading ? <div>..loading </div> : commentsList.map((comment, idx) => {
                     return <Comment key = {idx}
                                     text = {comment.comment_text}
-                                    user = {comment.user_id}
+                                    user = {comment.author}
                                     date = {comment.comment_date}   
                                     />
                 })}

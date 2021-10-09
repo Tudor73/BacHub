@@ -10,7 +10,15 @@ export default function CreatePostForm(props) {
         e.preventDefault();
         const post = { title, text, materie };
         post['author'] = 1;
-        console.log(post);
+        const token = localStorage.getItem('jwtToken');
+        console.log(token);
+        if(localStorage.getItem('jwtToken')){
+            const user_name = localStorage.getItem('name');
+            post['author'] = user_name;
+        }
+        else{
+            return ( <div>You are not logged in </div>)
+        }
         fetch('http://localhost:3000/posts', {
             method: "POST",
             headers: { "Content-Type": "application/json", Authorization: localStorage.getItem('jwtToken')  },

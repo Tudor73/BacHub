@@ -19,8 +19,8 @@ export const getAllComments = async (req, res) => {
 export const createComment = async (req, res) => {
     
     try { 
-        const result = await db.query('INSERT INTO comments (post_id, user_id, comment_text) values ($1, $2, $3)',
-        [req.body.post_id, req.body.user_id, req.body.comment_text]);
+        const result = await db.query('INSERT INTO comments (post_id, author, comment_text) values ($1, $2, $3)',
+        [req.body.post_id, req.body.author, req.body.comment_text]);
         res.status(201).send("created");
     }
     catch(err) {

@@ -22,12 +22,6 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 // configure redis for storing session 
-const RedisStore = connectRedis(session);
-const redisClient = redis.createClient({
-    port: 6379,
-    host: 'localhost'
-});
-
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors());

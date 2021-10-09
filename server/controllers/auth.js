@@ -19,7 +19,7 @@ export const googleLogin = (req, res) => {
                 }
                 const user = {name: name, email: email};
                 const accessToken = Jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-                res.json({accessToken: accessToken});
+                res.json({accessToken: accessToken, name: name,});
 
             } catch(err){
                 console.log(err);

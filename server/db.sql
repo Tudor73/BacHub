@@ -1,6 +1,6 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
-    user_name VARCHAR(25),
+    user_name VARCHAR(40) UNIQUE,
     email VARCHAR(45),
     registration_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
@@ -9,7 +9,7 @@ CREATE TABLE posts (
     post_id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     text TEXT NOT NULL,
-    author INT REFERENCES users(user_id) ON DELETE CASCADE,
+    author VARCHAR(40) REFERENCES users(user_name) ON DELETE CASCADE,
     materie VARCHAR(20),
     post_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
@@ -17,7 +17,7 @@ CREATE TABLE posts (
 CREATE TABLE comments (
     comment_id SERIAL PRIMARY KEY,
     post_id INT REFERENCES posts(post_id) ON DELETE CASCADE,
-    user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+    author VARCHAR(40) REFERENCES users(user_name) ON DELETE CASCADE,
     comment_text TEXT,
     comment_date DATE NOT NULL DEFAULT CURRENT_DATE
 );

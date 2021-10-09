@@ -21,6 +21,7 @@ export default function LoginForm(props) {
         }).then(res => {
             console.log(res);
             localStorage.setItem('jwtToken', res.data.accessToken);
+            localStorage.setItem('name', res.data.name);
         })
     }
 

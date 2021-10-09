@@ -11,8 +11,9 @@ import PostDetails from "./pages/PostDetails";
 import { UserContext } from "./UserContext";
 
 function App() {
-    const token = localStorage.getItem('jwtToken')
-    const [user, setUser] = useState(token);
+    const token = localStorage.getItem('jwtToken');
+    const user_name = localStorage.getItem('name');
+    const [user, setUser] = useState({'token': token, 'name': user_name});
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
     console.log(value);
     return (

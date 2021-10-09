@@ -3,7 +3,6 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { UserContext } from "../UserContext";
-import { compose } from "@material-ui/system";
 
 function Header() {
     const {user, setUser} = useContext(UserContext);
@@ -16,6 +15,7 @@ function Header() {
     }
     const logoutUser = () => {
         localStorage.removeItem('jwtToken');
+        localStorage.removeItem('name');
         setUser(null);
     }
     const onPopUpClose = () => {
