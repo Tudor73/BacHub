@@ -32,7 +32,7 @@ function Header() {
         <nav>
           <ul className={styles.navLinks}>
             <Link style={style} to="/">
-              <li>Home</li>
+              <li>Profile</li>
             </Link>
             <Link style={style} to="/dashboard">
               <li>Dashboard</li>
