@@ -9,11 +9,6 @@ import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import dotenv from "dotenv";
-import passport from "passport";
-import session from "express-session";
-import passportConfig from "./config/passport.js";
-import redis from "redis";
-import connectRedis from "connect-redis";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: "./config/config.env" });

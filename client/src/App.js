@@ -4,7 +4,6 @@ import Header from "./Components/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Variante from "./pages/Variante";
 import CreatePostForm from "./pages/CreatePostForm";
-import "./global.module.css";
 import PostsPage from "./pages/PostsPage";
 import PostDetails from "./pages/PostDetails";
 import { UserContext } from "./UserContext";
@@ -21,7 +20,7 @@ function App() {
         <UserContext.Provider value={value}>
           <Header />
           <Switch>
-            <Route path="/" exact component={Profile} />
+            {/* <Route path="/" exact component={Profile} /> */}
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/dashboard/:id" component={Variante} />
             <Route path="/posts" exact component={PostsPage} />

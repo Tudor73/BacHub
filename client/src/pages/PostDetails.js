@@ -3,6 +3,7 @@ import styles from "./css/PostDetails.module.css";
 import Comment from "../Components/Comment";
 import ImageIcon from "@material-ui/icons/Image";
 import { UserContext } from "../UserContext";
+import Post from "../Components/Post";
 
 export default function PostDetails({ match }) {
   const { user, setUser } = useContext(UserContext);
@@ -70,15 +71,15 @@ export default function PostDetails({ match }) {
   };
   return (
     <div className={styles.postContainer}>
-      <div className={styles.postHeader}>
-        <h1>{post.title}</h1>
-        <p>
-          Posted by {post.author} on {date}
-        </p>
-      </div>
-      <div className={styles.postBody}>
-        <p>{post.text}</p>
-      </div>
+      <Post
+        title={post.title}
+        text={post.text}
+        author={post.author}
+        materie={post.materie}
+        time={date}
+        votes={post.votes}
+        id={post.post_id}
+      />
       <div className={styles.answers}>
         <h2>Raspunsuri</h2>
         {loading ? (
