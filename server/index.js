@@ -8,6 +8,7 @@ import postRoutes from "./routes/posts.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
+import voteRoutes from "./routes/voting.js";
 import dotenv from "dotenv";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -41,6 +42,7 @@ app.use("/auth", authRoutes);
 app.use("/posts", postRoutes);
 app.use("/comments", commentRoutes);
 app.use("/users", userRoutes);
+app.use("/vote", voteRoutes);
 
 app.get("/pdf", (req, res) => {
   let img = __dirname + "/curs.pdf";
