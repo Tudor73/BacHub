@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import downArrow from "../icons/arrowDown.svg";
-import upArrow from "../icons/arrowUp.svg";
-import styles from "./Post.module.css";
+import { VscTriangleUp } from "react-icons/vsc";
+import { VscTriangleDown } from "react-icons/vsc";
 
 const parseTime = (time) => {
   return time.slice(0, 10);
@@ -11,7 +10,6 @@ const parseTime = (time) => {
 export default function Post(props) {
   const history = useHistory();
 
-  let numberOfVotes = props.votes;
   const clickOnPost = (id) => {
     // redirects to the post detail page for the post they clicked on
     let path = `/posts/${id}`;
@@ -25,9 +23,9 @@ export default function Post(props) {
                     bg-white h-40"
     >
       <div className="h-full self-center flex flex-col justify-around items-center">
-        <img src={upArrow} className={styles.arrows}></img>
+        <VscTriangleUp className="text-5xl text-gray-400 hover:text-indigo-500 cursor-pointer" />
         <span className="text-lg w-full text-center">201</span>
-        <img src={downArrow} className={styles.arrows} />
+        <VscTriangleDown className="text-5xl text-gray-400 hover:text-indigo-500 cursor-pointer" />
       </div>
       <div className="flex-1 p-4">
         <div className="text-sm">

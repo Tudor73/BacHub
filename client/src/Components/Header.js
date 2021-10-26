@@ -4,17 +4,14 @@ import LoginForm from "./LoginForm";
 import { UserContext } from "../UserContext";
 
 function Header() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, isLoggedIn, setIsLoggedIn } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
-  const style = {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "1.15rem",
-    letterSpacing: "1px",
-  };
+
   const logoutUser = () => {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("name");
+    localStorage.removeItem("display_name");
+    setIsLoggedIn(false);
     setUser(null);
   };
   const onPopUpClose = () => {
@@ -22,6 +19,7 @@ function Header() {
     const token = localStorage.getItem("jwtToken");
     if (token) {
       setUser(token);
+      setIsLoggedIn(true);
     }
   };
   return (
@@ -43,7 +41,7 @@ function Header() {
             </ul>
           </nav>
         </div>
-        {user != null ? (
+        {isLoggedIn === true ? (
           <li onClick={logoutUser}>Logout</li>
         ) : (
           <div className="">

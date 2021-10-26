@@ -1,5 +1,23 @@
 import { pool as db } from "../config/db.js";
 
+export const getVotes = async (req, res) => {
+  try {
+    const results = await db.query(
+      "SELECT * FROM voting WHERE user_name = $1",
+      [req.body.name]
+    );
+    res.status(200).json({
+      status: "success",
+      // results: results.rows.length,
+      data: {
+        votes: results.rows,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const addVote = async (req, res) => {
   try {
     if (req.body.type == "comment") {
