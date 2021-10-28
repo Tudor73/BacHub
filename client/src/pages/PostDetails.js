@@ -4,6 +4,7 @@ import Comment from "../Components/Comment";
 import ImageIcon from "@material-ui/icons/Image";
 import { UserContext } from "../UserContext";
 import Post from "../Components/Post";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function PostDetails({ match }) {
   const { user, setUser } = useContext(UserContext);
@@ -13,8 +14,11 @@ export default function PostDetails({ match }) {
   const [commentsAdded, setCommentsAdded] = useState(0);
   const [formText, setFormText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { votes } = useSelector((state) => state.votes);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(votes);
     fetch("http://localhost:3000/posts/" + match.params.id)
       .then((response) => {
         return response.json();

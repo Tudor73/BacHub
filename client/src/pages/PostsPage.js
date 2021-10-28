@@ -4,16 +4,20 @@ import styles from "./css/PostPage.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addPostVote, fetchVotes } from "../redux/votesSlice";
 
 export default function PostPage(props) {
   const [posts, setPosts] = useState([{}]); // array of objects
   const [loading, setLoading] = useState(true);
   const { user, setUser } = useContext(UserContext);
 
+  const { votes } = useSelector((state) => state.votes);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const data = {
-      name: user.name,
-    };
+    dispatch(fetchVotes(user.name));
+
     axios({
       method: "GET",
       url: "http://localhost:3000/posts",
@@ -24,19 +28,6 @@ export default function PostPage(props) {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-
-    // axios({
-    //   method: "POST",
-    //   url: "http://localhost:3000/vote",
-    //   headers: { Authorization: localStorage.getItem("jwtToken") },
-    //   data: data,
-    // })
-    //   .then((res) => {
-    //     setVotes(res.data.data.votes);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   }, []);
   return (
     <div className={styles.container}>
@@ -49,6 +40,7 @@ export default function PostPage(props) {
         Create Post
       </a>
       <input
+        onClick={() => console.log(votes)}
         className={styles.search}
         type="text"
         placeholder="Search for question"
