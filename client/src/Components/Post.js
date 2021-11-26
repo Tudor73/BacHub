@@ -33,57 +33,56 @@ export default function Post(props) {
     let path = `/posts/${id}`;
     history.push(path);
   };
-  const handleUpVoteClick = () => {
+
+  const handleClick = (voteValue) => {
     const vote = {
       user_name: user.name,
-      vote: 1, // 1 is for upvote
+      vote: voteValue,
       post_id: props.id,
     };
-    if (voted == 1) {
+    if (voted === 1) {
       // if the user already upvoted the post
-      dispatch(deletePostVote(vote));
-      let copyNrOfVotes = nrOfVotes - 1;
-      setNrOfVotes(copyNrOfVotes);
-      setVoted(0);
-    } else if (voted == -1) {
+
+      if (voteValue === 1) {
+        dispatch(deletePostVote(vote)); // the user already upvoted so we remove the vote
+        let copyNrOfVotes = nrOfVotes - 1;
+
+        setNrOfVotes(copyNrOfVotes);
+        setVoted(0);
+      } else if (voteValue === -1) {
+        dispatch(updatePostVote(vote)); // the user changed his vote
+        let copyNrOfVotes = nrOfVotes - 2; // from downvote to upvote
+
+        setNrOfVotes(copyNrOfVotes);
+        setVoted(voteValue);
+      }
+    } else if (voted === -1) {
       // if the user already downvoted the post
-      dispatch(updatePostVote(vote));
-      let copyNrOfVotes = nrOfVotes + 2; // from downvote to upvote
-      setNrOfVotes(copyNrOfVotes);
-      setVoted(1);
-    } else {
+
+      if (voteValue === 1) {
+        dispatch(updatePostVote(vote)); // if the user upvoted the post
+        let copyNrOfVotes = nrOfVotes + 2; // from downvote to upvote
+
+        setNrOfVotes(copyNrOfVotes);
+        setVoted(voteValue);
+      } else if (voteValue === -1) {
+        dispatch(deletePostVote(vote)); //  if the user already downvoted the post
+        let copyNrOfVotes = nrOfVotes + 1;
+
+        setNrOfVotes(copyNrOfVotes);
+        setVoted(0); // removing the vote
+      }
+    } else if (voted === 0) {
       dispatch(addPostVote(vote));
-      let copyNrOfVotes = nrOfVotes + 1;
+      let copyNrOfVotes = nrOfVotes + voteValue;
+
       setNrOfVotes(copyNrOfVotes);
-      setVoted(1);
+      setVoted(voteValue);
     }
   };
-  const handleDownVoteClick = () => {
-    const vote = {
-      user_name: user.name,
-      vote: -1, // -1 is for downVote
-      post_id: props.id,
-    };
-    if (voted == 1) {
-      // if the user already upvoted the post
-      dispatch(updatePostVote(vote));
-      let copyNrOfVotes = nrOfVotes - 2; // from upvote to downvote
-      setNrOfVotes(copyNrOfVotes);
-      setVoted(-1);
-    } else if (voted == -1) {
-      // if the user already downvoted the post
-      dispatch(deletePostVote(vote));
-      let copyNrOfVotes = nrOfVotes + 1;
-      setNrOfVotes(copyNrOfVotes);
-      setVoted(0);
-    } else {
-      dispatch(addPostVote(vote));
-      let copyNrOfVotes = nrOfVotes - 1;
-      setNrOfVotes(copyNrOfVotes);
-      setVoted(-1);
-    }
-  };
+
   const date = parseTime(props.time);
+
   return (
     <div
       className="border-2 border-black border-opacity-5 hover:border-opacity-20 m-2 flex 
@@ -92,7 +91,7 @@ export default function Post(props) {
       <div className="h-full self-center flex flex-col justify-around items-center">
         <VscTriangleUp
           onClick={() => {
-            handleUpVoteClick();
+            handleClick(1);
           }}
           className={
             "text-5xl cursor-pointer " +
@@ -104,7 +103,7 @@ export default function Post(props) {
         <span className="text-lg w-full text-center">{nrOfVotes}</span>
         <VscTriangleDown
           onClick={() => {
-            handleDownVoteClick();
+            handleClick(-1);
           }}
           className={
             "text-5xl cursor-pointer " +
