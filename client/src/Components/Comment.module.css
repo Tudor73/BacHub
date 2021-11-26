@@ -1,13 +1,9 @@
-.commentContainer {
-    border: 1px solid #999;
-    padding: 20px;
-    margin-bottom: 3%;
+.arrows {
+  filter: invert(97%) sepia(1%) saturate(1753%) hue-rotate(190deg)
+    brightness(80%) contrast(81%);
+  height: 2.5rem;
 }
-.commentInfo {
-    opacity: 0.4;
-}
-.commentContainer img { 
-    width: 320px;
-    height: 240px;
-    border: 1px solid #999;
+.arrows:hover {
+  filter: invert(57%) sepia(45%) saturate(2629%) hue-rotate(206deg)
+    brightness(100%) contrast(95%);
 }

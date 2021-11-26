@@ -1,45 +1,65 @@
 .postContainer {
-    width:97%;
-    height:30vh;
-    border: 1px #999 solid;
-    display: flex;
-    flex-direction: column;
-    padding-left: 8%;
-    padding-top: 3%;
-    margin-top: 3%;  
+  width: 97%;
+  height: 30vh;
+  border: 1px #999 solid;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8%;
+  padding-top: 3%;
+  margin-top: 3%;
 }
-.postContainer h3{
-    display: inline;
-    font-size:0.9rem;
+.postContainer h3 {
+  display: inline;
+  font-size: 0.9rem;
 }
 .postContainer span {
-    opacity: 0.4;
-    font-size:0.9rem;
-    letter-spacing: 1px;
+  opacity: 0.4;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
-.postHeader, .postBody {
-    width: 85%;
-    border-bottom: 1px solid rgb(199, 199, 199);
-    padding-bottom:5px;
+.postHeader,
+.postBody {
+  width: 85%;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  padding-bottom: 5px;
 }
 .postHeader span {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .postFooter {
-    width: 85%;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 85%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .postFooter a {
-    color: white;
-    letter-spacing: 1px;
-    background-color: var(--color2);
-    padding: 6px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  color: white;
+  letter-spacing: 1px;
+  background-color: var(--color2);
+  padding: 6px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .postFooter a:hover {
-    background-color:#3440c7cc ;
+  background-color: #3440c7cc;
 }
+
+img {
+  cursor: pointer;
+  height: 50px;
+}
+/* .arrows {
+  filter: invert(97%) sepia(1%) saturate(1753%) hue-rotate(190deg)
+    brightness(80%) contrast(81%);
+  height: 2.5rem;
+}
+.arrows:hover {
+  filter: invert(57%) sepia(45%) saturate(2629%) hue-rotate(206deg)
+    brightness(100%) contrast(95%);
+}
+.voted {
+  filter: invert(57%) sepia(45%) saturate(2629%) hue-rotate(206deg)
+    brightness(100%) contrast(95%);
+  height: 2.5rem;
+} */

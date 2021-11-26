@@ -11,13 +11,11 @@ export default function LoginForm(props) {
   };
 
   const responseSuccesGoogle = (res) => {
-    console.log(res);
     axios({
       method: "POST",
       url: "http://localhost:3000/auth/login",
       data: { tokenId: res.tokenId },
     }).then((res) => {
-      console.log(res);
       localStorage.setItem("jwtToken", res.data.accessToken);
       localStorage.setItem("name", res.data.name);
       localStorage.setItem("display_name", res.data.name);

@@ -1,40 +1,35 @@
-header {
-    width: 100%;
-    background-color: var(--color1);
-    color: #fff;
-}
-.headerContainer{
-    width: 90%;
-    height: 15vh;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.headerContainer {
+  width: 90%;
+  height: 15vh;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 header h1 {
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 nav {
-    width: 50%;
+  width: 50%;
 }
 .navLinks {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
-    padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  padding-top: 25px;
 }
 li {
-    cursor: pointer;
+  cursor: pointer;
 }
 .loginButton {
-    background-color: var(--color2);
-    padding: 12px 20px;
-    border-radius: 5px;
-    position: relative;
-    bottom: 10px;
+  background-color: var(--color2);
+  padding: 12px 20px;
+  border-radius: 5px;
+  position: relative;
+  bottom: 10px;
 }
-.loginButton:hover{
-    background-color:#535cc5de ;
+.loginButton:hover {
+  background-color: #535cc5de;
 }
