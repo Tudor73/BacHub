@@ -1,15 +1,15 @@
 body {
-    margin: 0px;
-    padding :0px;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color1)
+  margin: 0px;
+  padding: 0px;
+  font-family: "Montserrat", sans-serif;
+  color: var(--color1);
 }
 
- /* color palette  */
+/* color palette  */
 :root {
-    --color1: #02203c;
-    --color2: #535dc5;
+  --color1: #02203c;
+  --color2: #535dc5;
 }
 button {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -46,7 +46,7 @@ function Header() {
         ) : (
           <div className="">
             <li
-              className="inline-block py-2 px-4 text-yellow-700 bg-yellow-400 hover:bg-yellow-300 hover:text-yellow-800 rounded transition ease-in duration-150"
+              className="inline-block py-2 px-4 text-yellow-700 bg-yellow-400 hover:bg-yellow-300 hover:text-yellow-800 rounded transition ease-in duration-150 cursor-pointer"
               onClick={() => {
                 setIsOpen(true);
               }}
