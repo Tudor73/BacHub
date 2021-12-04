@@ -18,6 +18,7 @@ export default function LoginForm(props) {
       localStorage.setItem("jwtToken", res.data.accessToken);
       localStorage.setItem("name", res.data.name);
       localStorage.setItem("display_name", res.data.name);
+      window.location.reload();
     });
   };
 

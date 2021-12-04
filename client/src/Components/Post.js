@@ -85,7 +85,7 @@ export default function Post(props) {
 
   return (
     <div
-      className="border-2 border-black border-opacity-5 hover:border-opacity-20 m-2 flex 
+      className="border-2 border-black border-opacity-5 hover:border-opacity-20 my-4 flex 
                     bg-white h-40"
     >
       <div className="h-full self-center flex flex-col justify-around items-center">
@@ -96,8 +96,8 @@ export default function Post(props) {
           className={
             "text-5xl cursor-pointer " +
             (voted === 1
-              ? "text-indigo-500"
-              : "text-gray-400 hover:text-indigo-500")
+              ? "text-blue-500"
+              : "text-gray-400 hover:text-blue-500")
           }
         />
         <span className="text-lg w-full text-center">{nrOfVotes}</span>
@@ -108,8 +108,8 @@ export default function Post(props) {
           className={
             "text-5xl cursor-pointer " +
             (voted === -1
-              ? "text-indigo-500"
-              : "text-gray-400 hover:text-indigo-500")
+              ? "text-blue-500"
+              : "text-gray-400 hover:text-blue-500")
           }
         />
       </div>
@@ -129,6 +129,7 @@ export default function Post(props) {
             Comments(10)
           </span>
           <a
+            className="py-2 px-4 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600"
             onClick={() => {
               clickOnPost(props.id);
             }}

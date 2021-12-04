@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Post from "../Components/Post";
-import styles from "./css/PostPage.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext";
@@ -30,21 +29,15 @@ export default function PostPage(props) {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className={styles.container}>
+    <div className="p-4">
       <a
-        className={styles.createPost}
+        className="bg-blue-500 px-4 py-2 rounded-lg cursor-pointer text-white hover:bg-blue-600"
         onClick={() => {
           props.history.push("create-post");
         }}
       >
         Create Post
       </a>
-      <input
-        onClick={() => console.log(votes)}
-        className={styles.search}
-        type="text"
-        placeholder="Search for question"
-      />
       {loading ? (
         <div>...loading </div>
       ) : (
